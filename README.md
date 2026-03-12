@@ -32,8 +32,6 @@ Three modules were built to meet business-specific needs:
 | `sale_pricelist_max_discount` | Caps the maximum discount on pricelist items |
 | `unit_price_readonly` | Locks unit price on sales orders for non-admin users |
 
-Docker Compose is included to run the full Odoo stack locally.
-
 ---
 
 ## Implementation
@@ -56,8 +54,15 @@ Docker Compose is included to run the full Odoo stack locally.
 
 ### Record Rules (Access Control)
 
-- **Sales**: Own documents vs. all documents
-- **Warehouse**: Inventory admin vs. inventory user
+**Sales**
+- **Own documents**: Salesperson sees and interacts with only their own sales documents
+- **All documents**: Sales admin sees and interacts with all sales documents across the team
+
+**Warehouse**
+- **Inventory User**: Sees and interacts with their own assigned warehouse only — no visibility into other warehouses
+- **Inventory Admin**: Sees and manages all warehouses across the company
+
+> This ensures each warehouse operator works in isolation while management retains full visibility.
 
 ---
 
@@ -67,6 +72,31 @@ Docker Compose is included to run the full Odoo stack locally.
 - **Docker / Docker Compose** (local deployment)
 - **PostgreSQL** (database)
 - **Python** (custom module development)
+
+---
+
+## How to Run Locally
+
+**Step 1 — Add your Odoo Enterprise addons**
+
+Place your Odoo Enterprise addons folder inside `Customization/` and rename it to `enterprise`:
+
+```
+Customization/
+└── enterprise/       ← your enterprise addons go here
+```
+
+> ⚠️ The `enterprise` folder is required. Without it, Docker will fail to start correctly.
+
+**Step 2 — Start the stack**
+
+```bash
+git clone git@github.com:AbdoAshrafEngineer/trading-company-odoo-erp.git
+cd trading-company-odoo-erp/Customization
+docker compose up -d
+```
+
+Access Odoo at `http://localhost:9090`
 
 ---
 
