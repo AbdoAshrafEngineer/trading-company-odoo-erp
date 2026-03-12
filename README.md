@@ -100,7 +100,5 @@ Access Odoo at `http://localhost:9090`
 
 ---
 
-## Case Study
-
 For full business context, process walkthroughs, and outcomes — read the case study:
 **[https://www.elsaka.com/case-study](https://www.elsaka.com/case-study)**
