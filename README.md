@@ -3,6 +3,8 @@
 A techno-functional Odoo ERP implementation for a trading company — covering business process design, custom module development, and full system configuration.
 
 👉 **[View the full case study](https://www.elsaka.com/case-study)**
+🗺️ **[View the business process map](https://modeler.camunda.io/share/32bce904-c8d9-4b81-996e-461de23cf6f6)**
+▶️ **[Watch the UAT playlist on YouTube](https://www.youtube.com/playlist?list=PL9SL0AN2J0MWXbJN-umSWJzr6IOpuAzFH)**
 
 ---
 
