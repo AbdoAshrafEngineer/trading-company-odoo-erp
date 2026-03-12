@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="product_template_form_inherit_allow_price_edit" model="ir.ui.view">
+        <field name="name">product.template.form.allow.so.price.edit</field>
+        <field name="model">product.template</field>
+        <field name="inherit_id" ref="product.product_template_form_view"/>
+        <field name="arch" type="xml">
+
+            <!-- Insert tick just before Sales Price -->
+            <xpath expr="//field[@name='list_price']" position="before">
+                <field name="x_allow_so_price_edit" widget="boolean_toggle"/>
+            </xpath>
+
+        </field>
+    </record>
+</odoo>

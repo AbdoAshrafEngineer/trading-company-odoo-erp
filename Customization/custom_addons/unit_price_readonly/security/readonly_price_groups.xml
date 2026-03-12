@@ -1,0 +1,8 @@
+<odoo>
+<!-- Access to the cost price -->
+    <data>
+        <record id="groups_view_cost_price" model="res.groups">
+            <field name="name">Unit Price Readonly</field>
+        </record>
+    </data>
+</odoo>

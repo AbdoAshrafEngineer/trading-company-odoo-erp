@@ -1,0 +1,21 @@
+<odoo>
+    <record id="sale_order_form_inherit_price_unit_ro_group" model="ir.ui.view">
+        <field name="name">sale.order.form.inherit.price.unit.readonly.group</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_order_form"/>
+        <field name="arch" type="xml">
+
+            <!-- O2M LIST (tree) price_unit -->
+            <xpath expr="//field[@name='order_line']//list//field[@name='price_unit']" position="attributes">
+                <!-- keep existing readonly and extend it -->
+                <attribute name="readonly">qty_invoiced &gt; 0 or x_price_unit_readonly</attribute>
+            </xpath>
+
+            <!-- O2M FORM (line form) price_unit -->
+            <xpath expr="//field[@name='order_line']//form//field[@name='price_unit']" position="attributes">
+                <attribute name="readonly">qty_invoiced &gt; 0 or x_price_unit_readonly</attribute>
+            </xpath>
+
+        </field>
+    </record>
+</odoo>

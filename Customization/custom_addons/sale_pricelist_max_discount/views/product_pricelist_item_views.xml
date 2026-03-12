@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="product_pricelist_item_form_inherit_max_discount" model="ir.ui.view">
+        <field name="name">product.pricelist.item.form.inherit.max.discount</field>
+        <field name="model">product.pricelist.item</field>
+        <field name="inherit_id" ref="product.product_pricelist_item_form_view"/>
+        <field name="arch" type="xml">
+
+            <!-- Many DBs use percent_price for percentage rules -->
+            <xpath expr="//field[@name='percent_price']" position="after">
+                <field name="x_max_discount" invisible="compute_price != 'percentage'"/>
+            </xpath>
+
+            <!-- Fallback: some installations use price_discount -->
+            <xpath expr="//field[@name='price_discount']" position="after">
+                <field name="x_max_discount" invisible="compute_price != 'percentage'"/>
+            </xpath>
+
+        </field>
+    </record>
+</odoo>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="product_pricelist_form_inherit_max_discount" model="ir.ui.view">
+        <field name="name">product.pricelist.form.inherit.max.discount</field>
+        <field name="model">product.pricelist</field>
+        <field name="inherit_id" ref="product.product_pricelist_view"/>
+        <field name="arch" type="xml">
+
+            <xpath expr="//page[@name='pricelist_rules']//field[@name='item_ids']//list" position="inside">
+                <field name="x_max_discount" string="Max Disc. %"
+                        invisible="compute_price != 'percentage'"/>
+            </xpath>
+
+        </field>
+    </record>
+</odoo>
